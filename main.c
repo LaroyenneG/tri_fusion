@@ -29,14 +29,6 @@ void addNumber(int number) {
     tab_len++;
 }
 
-void print_tab() {
-    printf("[");
-    for (int i = 0; i < tab_len; i++) {
-        printf("%d ", tab[i]);
-    }
-    printf("]\n");
-}
-
 void readFile(char *file_name) {
     FILE *file = fopen(file_name, "r");
     if (file == NULL) {
