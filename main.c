@@ -37,15 +37,8 @@ void print_tab() {
     printf("]\n");
 }
 
-
-int main(int argc, char *argv[]) {
-
-    if (argc != 2) {
-        usage();
-        exit(EXIT_FAILURE);
-    }
-
-    FILE *file = fopen(argv[1], "r");
+void readFile(char *file_name) {
+    FILE *file = fopen(file_name, "r");
     if (file == NULL) {
         perror("fopen()");
         exit(EXIT_FAILURE);
@@ -104,10 +97,40 @@ int main(int argc, char *argv[]) {
 
 
     fclose(file);
+}
+
+void writeFile(char *file_name) {
+
+    FILE *file = fopen(file_name, "w");
+    if (file == NULL) {
+        perror("fopen()");
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = 0; i < tab_len; i++) {
+        if (i + 1 == tab_len) {
+            fprintf(file, "%d", tab[i]);
+        } else {
+            fprintf(file, "%d ", tab[i]);
+        }
+    }
+
+    fclose(file);
+}
+
+
+int main(int argc, char *argv[]) {
+
+    if (argc != 2) {
+        usage();
+        exit(EXIT_FAILURE);
+    }
+
+    readFile(argv[1]);
 
     tri_fusion(tab, tab_len);
 
-    print_tab();
+    writeFile(argv[1]);
 
     free(tab);
 
