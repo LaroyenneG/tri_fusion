@@ -105,7 +105,11 @@ int main(int argc, char *argv[]) {
 
     fclose(file);
 
+    tri_fusion(tab, tab_len);
+
     print_tab();
+
+    free(tab);
 
     return EXIT_SUCCESS;
 }

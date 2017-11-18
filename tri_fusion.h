@@ -7,5 +7,6 @@
 
 #define BUFFER_SIZE 65536
 
+void tri_fusion(int *tab, size_t size);
 
 #endif //TRI_FUSION_TRI_FUSION_H
