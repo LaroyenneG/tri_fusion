@@ -10,7 +10,7 @@ static int *tab = NULL;
 static size_t tab_len = 0;
 
 void usage() {
-    printf("usage : tri_fusion <file>");
+    printf("usage : tri_fusion <file>\n");
 }
 
 void addNumber(int number) {
